@@ -7,6 +7,8 @@ end
 
 add_requires("eigen","nanogui","pybind11","openmp", "glad", "glm")
 
+add_cflags("-fdump-rtl-expand")
+
 target("DiffCloth")
     set_kind("binary")
     add_files("src/code/**.cpp")

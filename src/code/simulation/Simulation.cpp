@@ -1125,6 +1125,7 @@ void Simulation::step() {
   VecXd vnew_n_primitives(3 * primitives.size());
   VecXd A_t_times_p_pertype[Constraint::CONSTRAINT_NUM];
 
+  // calculate translational motion of rigid body
   f_primitives.setZero();
   delta_v_primitives.setZero();
   for (int i = 0; i < primitives.size(); i++) {
@@ -1164,7 +1165,7 @@ void Simulation::step() {
 
 
   {
-
+    // -------- 
     timeSteptimer.tic("PD init");
     Eigen::VectorXd b(3 * particles.size());
     b.setZero();
